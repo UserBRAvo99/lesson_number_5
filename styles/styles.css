@@ -598,7 +598,7 @@ body {
     background-color: var(--background-gallery-item-hover);
     padding: 63px 24px;
 
-    transform: translateY(100%);
+    transform: translateY(101%);
 
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
@@ -609,7 +609,7 @@ body {
     color: var(--primary-text-white);
 } 
 
-.gallery_link:hover .img_bloc_hidden {
+.gallery_link:hover .img_bloc_hidden, .gallery_link:focus .img_bloc_hidden {
     transform: translateY(0);
 }
 
