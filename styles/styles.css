@@ -647,7 +647,7 @@ body {
 
     transform: translateY(101%);
 
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1)
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .img_paragraf_hidden {
@@ -710,6 +710,11 @@ body {
     z-index: 3;
 
     background: var(--background-backdrop);
+
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is_hidden {
@@ -717,6 +722,8 @@ body {
     opacity: 0;
     /* ця властивість впливає на те що коли елемент прихований, він не впливає на події(мишка, стилус, тощо) і пропускає їх черз себе */
     pointer-events: none;
+    transform: scale(0.5);
+    
 }
 /* модальне вікно */
 .modal_window {
@@ -732,6 +739,11 @@ body {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }
+
+/* анімація модального вікна на бекдропі(починається з закритого стану бекдропу до відкритого) */
+/* .backdrop.is_hidden .modal_window {
+    transform: scale(0.9) translate(-50%, -50%);
+} */
 
 .modal_window_close {
     position: absolute;
@@ -749,4 +761,6 @@ body {
     background-color: var(--background-modal-window);
 
     cursor: pointer;
+    transform: scale(1);
+    transition: transform 5250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
