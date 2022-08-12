@@ -42,6 +42,8 @@ h1, h2, h3, h4, ul, p {
     --team-link-color: #AFB1B8;
     --background-soc-link-footer: rgba(255, 255, 255, 0.1);
     --background-gallery-item-hover: rgba(33, 150, 243, 0.9);
+    --background-backdrop: rgba(0, 0, 0, 0.2);
+    --background-modal-window: #FFFFFF;
 }
 /* container - ширина контенту відповідає макету 1200рх + треба врахувати гаттери 30рх (по 15 з кожного боку), в данному випадку треба відняти від зазначеного розміру */
 .container {
@@ -94,7 +96,7 @@ body {
     /* фіксуємо меню вгорі вьюпорта */
     position: fixed;
     /* z-index - ставимо з найбільшим значенням, для то го щоб елементи з позиціюванням не вилазили на хедер */
-    z-index: 999;
+    z-index: 2;
 /* страртова позиція хедера - обов'язково прописувати */
     top: 0;
     left: 0;
@@ -661,4 +663,59 @@ body {
     font-size: 16px;
     line-height: 1.87;
     color: var(--second-text-gray);
+}
+
+/* backdrop - задній фон модального вікна */
+.backdrop {
+    /* фіксована позиція вьюпорту */
+    position: fixed;
+    
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 3;
+
+    background: var(--background-backdrop);
+}
+
+.backdrop.is_hidden {
+    /* приховує елемент, надає йому прозорості, але не приховує елемент від подій під ним */
+    opacity: 0;
+    /* ця властивість впливає на те що коли елемент прихований, він не впливає на події(мишка, стилус, тощо) і пропускає їх черз себе */
+    pointer-events: none;
+}
+/* модальне вікно */
+.modal_window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    min-width: 528px;
+    min-height: 581px;
+
+    background-color: var(--background-modal-window);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.modal_window_close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 30px;
+    height: 30px;
+    
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--background-modal-window);
+
+    cursor: pointer;
 }
