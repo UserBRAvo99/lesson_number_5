@@ -62,7 +62,10 @@ body {
     letter-spacing: 0.03em;
     color: var(--second-text-gray);
 
-    background-color: var(--primary-background-color);   
+    background-color: var(--primary-background-color); 
+    
+    /* padding-top - висота для фіксованого меню (щоб контент не попав під хедер) */
+        padding-top: 80px;
 }
 /*  Прибираємо маркування у списків */
 .link {
@@ -87,6 +90,17 @@ body {
     margin: -1px;
 }
 /* Клас для підкреслювання активної сторінки */
+.header {
+    /* фіксуємо меню вгорі вьюпорта */
+    position: fixed;
+    /* z-index - ставимо з найбільшим значенням, для то го щоб елементи з позиціюванням не вилазили на хедер */
+    z-index: 999;
+/* страртова позиція хедера - обов'язково прописувати */
+    top: 0;
+    left: 0;
+
+    background-color: var(--primary-background-color);
+}
 .header_item {
     position: relative;
 }
