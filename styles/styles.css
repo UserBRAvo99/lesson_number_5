@@ -44,6 +44,7 @@ h1, h2, h3, h4, ul, p {
     --background-gallery-item-hover: rgba(33, 150, 243, 0.9);
     --background-backdrop: rgba(0, 0, 0, 0.2);
     --background-modal-window: #FFFFFF;
+    --background-case_bloc_title: rgba(47, 48, 58, 0.8);
 }
 /* container - ширина контенту відповідає макету 1200рх + треба врахувати гаттери 30рх (по 15 з кожного боку), в данному випадку треба відняти від зазначеного розміру */
 .container {
@@ -338,6 +339,36 @@ body {
 .case_title {
     margin-bottom: 50px;
 }
+
+.case_bloc_img {
+    display: block;
+    position: relative;  
+}
+.case_bloc_title {
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+
+    width: 100%;
+    min-height: 70px;
+
+    background: var(--background-case_bloc_title);
+}
+.case_title_img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-weight: 700;
+    line-height: 1.14;
+    text-transform: uppercase;
+    
+    color: var(--primary-text-white);
+
+    white-space: nowrap;
+}
+
 /* Блок - наша команда */
 .team_list {
     display: flex;
@@ -704,14 +735,14 @@ body {
 
 .modal_window_close {
     position: absolute;
+    display: flex;
     top: 8px;
     right: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
 
     width: 30px;
     height: 30px;
+    align-items: center;
+    justify-content: space-around;
     
     border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.1);
